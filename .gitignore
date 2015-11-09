@@ -1,7 +1,7 @@
 # Ignore GCC temporary files, build results.
 
 FaceX/facex
-FaceX/facex-train
+FaceX-Train/facex-train
 *.o
 
 
