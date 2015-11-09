@@ -117,7 +117,7 @@ TrainingParameters ReadParameters(const string &filename)
 
 vector<DataPoint> GetTrainingData(const TrainingParameters &tp)
 {
-	const string label_pathname = tp.training_data_root + "\\labels.txt";
+	const string label_pathname = tp.training_data_root + "/labels.txt";
 	ifstream fin(label_pathname);
 	if (!fin)
 		throw runtime_error("Cannot open label file " + label_pathname);
@@ -128,9 +128,9 @@ vector<DataPoint> GetTrainingData(const TrainingParameters &tp)
 	while (fin >> current_image_pathname)
 	{
 		DataPoint current_data_point;
-		current_data_point.image_depth = cv::imread(tp.training_data_root + "\\" +
+		current_data_point.image_depth = cv::imread(tp.training_data_root + "/" +
 			current_image_pathname + "_depth.png", CV_LOAD_IMAGE_ANYDEPTH);
-		current_data_point.image_infrared = cv::imread(tp.training_data_root + "\\" +
+		current_data_point.image_infrared = cv::imread(tp.training_data_root + "/" +
 			current_image_pathname + "_long_exposure_infrared.png", CV_LOAD_IMAGE_ANYDEPTH);
 		if (current_data_point.image_depth.data == nullptr || current_data_point.image_infrared.data == nullptr)
 			throw runtime_error("Cannot open image file " + current_image_pathname);

@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 	FaceX face_x;
 	face_x.OpenModel(argv[1]);
 
-	ifstream fin("test\\labels.txt");
+	ifstream fin("test/labels.txt");
 	string pathname;
 
 	vector<double> errors;
@@ -73,8 +73,8 @@ int main(int argc, char *argv[])
 			landmarks.push_back(p);
 		}
 
-		cv::Mat image_infrared = cv::imread("test\\" + pathname + "_long_exposure_infrared.png", CV_LOAD_IMAGE_ANYDEPTH);
-		cv::Mat image_depth = cv::imread("test\\" + pathname + "_depth.png", CV_LOAD_IMAGE_ANYDEPTH);
+		cv::Mat image_infrared = cv::imread("test/" + pathname + "_long_exposure_infrared.png", CV_LOAD_IMAGE_ANYDEPTH);
+		cv::Mat image_depth = cv::imread("test/" + pathname + "_depth.png", CV_LOAD_IMAGE_ANYDEPTH);
 
 		vector<cv::Point2d> landmarks_estimation = face_x.Alignment(
 			image_infrared, image_depth, cv::Rect(left, top, right - left, bottom - top));
